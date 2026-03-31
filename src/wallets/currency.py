@@ -1,0 +1,2 @@
+rub = "RUB"
+usd = "USD"
