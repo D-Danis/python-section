@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from decimal import Decimal
+from typing import Self
 
 from src.wallets.exceptions import NegativeValueException, NotComparisonException
 
@@ -59,7 +60,7 @@ class Wallet:
     def __contains__(self, currency: str) -> bool:
         return currency in self._balances
 
-    def add(self, money: Money) -> "Wallet":
+    def add(self, money: Money) -> Self:
         cur = money.currency
         if cur in self._balances:
             new_value = self._balances[cur].value + money.value
@@ -68,7 +69,7 @@ class Wallet:
             self._balances[cur] = Money(value=money.value, currency=cur)
         return self
 
-    def sub(self, money: Money) -> "Wallet":
+    def sub(self, money: Money) -> Self:
         cur = money.currency
         current = self[cur].value
         new_value = current - money.value

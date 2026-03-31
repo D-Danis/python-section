@@ -1,7 +1,6 @@
-from collections.abc import Generator, Iterable
 from dataclasses import dataclass, field
 from itertools import batched
-from typing import Any, Self, TypeAlias
+from typing import Any, Generator, Iterable, Self, TypeAlias
 
 SomeRemoteData: TypeAlias = int
 
